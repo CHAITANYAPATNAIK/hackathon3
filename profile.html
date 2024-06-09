@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Travel Agency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a.logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        header .navbar {
+            margin-top: 20px;
+        }
+
+        header .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .profile {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .profile h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #007bff;
+        }
+
+        .profile p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="landing.html" class="logo">Travel <span>Agency</span></a>
+        <nav class="navbar">
+            <a href="landing.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="profile">
+        <h2>Your Profile</h2>
+        <p id="userName">Name: </p>
+        <p id="userEmail">Email: </p>
+        <p id="userPhone">Phone: </p>
+        <button onclick="logout()">Logout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Travel Agency. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            
+            if (!userData) {
+                alert('You are not logged in. Redirecting to login page.');
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('userName').textContent = 'Name: ' + userData.name;
+                document.getElementById('userEmail').textContent = 'Email: ' + userData.email;
+                document.getElementById('userPhone').textContent = 'Phone: ' + (userData.phone || 'N/A');
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('userData');
+            alert('You have logged out.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

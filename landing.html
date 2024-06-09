@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency | Explore the World</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        header .logo {
+            font-size: 2rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        header .logo span {
+            color: #ff6347;
+        }
+
+        header .navbar a {
+            color: #333;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        header .navbar a:hover {
+            color: #ff6347;
+        }
+
+        header .icons a {
+            color: #333;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        header .icons a:hover {
+            color: #ff6347;
+        }
+
+        /* Home section */
+        .home {
+            height: 100vh;
+            background: url('img.jpg') no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .home .content {
+            max-width: 700px;
+            animation: fadeIn 2s;
+        }
+
+        .home .content h3 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s;
+        }
+
+        .home .content span {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s;
+        }
+
+        .home .content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 2s;
+        }
+
+        .home .content .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+            animation: fadeInDown 2.5s;
+        }
+
+        .home .content .btn:hover {
+            background: #ff4500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About section */
+        .about {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .about .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .about .heading span {
+            color: #ff6347;
+        }
+
+        .about .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about .video-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about .video-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about .content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about .content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .about .content .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .about .content .btn:hover {
+            background: #ff4500;
+        }
+
+        /* Destinations section */
+        .destinations {
+            padding: 100px 0;
+            background: #f9f9f9;
+        }
+
+        .destinations .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .destinations .heading span {
+            color: #ff6347;
+        }
+
+        .destinations .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .destinations .box {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .destinations .box img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .destinations .box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .destinations .box p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .destinations .box .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .destinations .box .btn:hover {
+            background: #ff4500;
+        }
+
+        .destinations .box:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Services section */
+        .services {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .services .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .services .heading span {
+            color: #ff6347;
+        }
+
+        .services .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .services .box {
+            background: #f9f9f9;
+            padding: 20px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .services .box img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .services .box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .services .box p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .services .box .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .services .box .btn:hover {
+            background: #ff4500;
+        }
+
+        .services .box:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Explore section */
+        .explore {
+            padding: 100px 20px;
+            background: #f9f9f9;
+            display: none;
+        }
+
+        .explore .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .explore .heading span {
+            color: #ff6347;
+        }
+
+        .explore .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .explore .box {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+
+        .explore .box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .explore .box p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .explore .box .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .explore .box .btn:hover {
+            background: #ff4500;
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 100px 20px;
+            background: #fff;
+        }
+
+        .contact .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .contact .heading span {
+            color: #ff6347;
+        }
+
+        .contact .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact form {
+            flex: 1;
+            max-width: 500px;
+            padding: 20px;
+            background: #f9f9f9;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact form .box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact form .btn {
+            background: #ff6347;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .contact form .btn:hover {
+            background: #ff4500;
+        }
+
+        .contact .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .contact .image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer section */
+        .footer {
+            padding: 50px 20px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer .box {
+            flex: 1 1 200px;
+            max-width: 200px;
+        }
+
+        .footer .box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer .box a {
+            color: #fff;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer .box a:hover {
+            color: #ff6347;
+        }
+
+        .footer .credit {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section starts -->
+    <header>
+        <a href="index.html" class="logo">Travel <span>Agency</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="icons">
+            <a href="wishlist.html" class="fas fa-heart"></a>
+            <a href="cart.html" class="fas fa-shopping-cart"></a>
+            <a href="profile.html" class="fas fa-user"></a>
+        </div>
+    </header>
+    <!-- Header ends -->
+
+    <!-- Home section starts -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Explore the World</h3>
+            <span>Discover Your Dream Destinations</span>
+            <p>Welcome to our travel agency, where your dream vacation begins.</p>
+            <a href="#explore" class="btn" id="start-exploring">Start Exploring</a>
+        </div>
+    </section>
+    <!-- Home section ends -->
+
+    <!-- About section starts -->
+    <section class="about" id="about">
+        <h1 class="heading"> <span> About </span> Us </h1>
+        <div class="row">
+            <div class="video-container">
+                <video src="about-vid.mp4" loop autoplay muted></video>
+                <h2>Your Trusted Travel Partner</h2>
+            </div>
+            <div class="content">
+                <h3>Why Choose Us?</h3>
+                <p>We are dedicated to providing unforgettable travel experiences tailored to your needs. With years of expertise and a passion for exploration, we make your journey seamless and memorable.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <!-- About section ends -->
+
+    <!-- Destinations section starts -->
+    <!-- Destinations section starts -->
+<section class="destinations" id="destinations">
+    <h1 class="heading">Popular <span>Destinations</span></h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="paris.jpeg" alt="Destination 1">
+            <h3>Paris, France</h3>
+            <p>The city of lights, love, and art. A timeless destination.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+        <div class="box">
+            <img src="syd.jpg" alt="Destination 4">
+            <h3>Sydney, Australia</h3>
+            <p>Explore the iconic Sydney Opera House, beautiful beaches, and vibrant city life.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+        <div class="box">
+            <img src="usa.jpeg" alt="Destination 3">
+            <h3>New York, USA</h3>
+            <p>The city that never sleeps. A vibrant, bustling metropolis.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+        <!-- Add India destinations -->
+        <div class="box">
+            <img src="tirupati.jpeg" alt="Destination 8">
+            <h3>Tirupati, India</h3>
+            <p>Visit the sacred Tirumala Venkateswara Temple, one of the richest temples in the world.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+        <div class="box">
+            <img src="taj.jpeg" alt="Destination 5">
+            <h3>Taj Mahal, India</h3>
+            <p>Visit one of the Seven Wonders of the World, a symbol of love and beauty.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+        <div class="box">
+            <img src="goa.jpeg" alt="Destination 6">
+            <h3>Goa, India</h3>
+            <p>Experience the sun-kissed beaches, vibrant nightlife, and Portuguese heritage.</p>
+            <a href="#explore" class="btn">Explore More</a>
+        </div>
+    </div>
+</section>
+<!-- Destinations section ends -->
+
+    <!-- Destinations section ends -->
+
+   <!-- Services section starts -->
+<!-- Services section starts -->
+<section class="services" id="services">
+    <h1 class="heading"> Our <span>Services</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="flight.jpeg" alt="Service 1">
+            <h3>Flight Booking</h3>
+            <p>Find and book the best flights at competitive prices.</p>
+            <div class="buttons">
+                <a href="#" class="btn">Learn More</a>
+                <button class="btn add-to-cart">Add to Cart</button>
+                <button class="btn add-to-wishlist">Add to Wishlist</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="hotel.jpeg" alt="Service 2">
+            <h3>Hotel Reservations</h3>
+            <p>Book the finest hotels and enjoy a comfortable stay.</p>
+            <div class="buttons">
+                <a href="#" class="btn">Learn More</a>
+                <button class="btn add-to-cart">Add to Cart</button>
+                <button class="btn add-to-wishlist">Add to Wishlist</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="bus.jpeg" alt="Service 3">
+            <h3>Bus Booking</h3>
+            <p>Book the bus to suit your preferences.</p>
+            <div class="buttons">
+                <a href="#" class="btn">Learn More</a>
+                <button class="btn add-to-cart">Add to Cart</button>
+                <button class="btn add-to-wishlist">Add to Wishlist</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="train.jpeg" alt="Service 4">
+            <h3>Train Booking</h3>
+            <p>Book the trains which suit your preferences.</p>
+            <div class="buttons">
+                <a href="#" class="btn">Learn More</a>
+                <button class="btn add-to-cart">Add to Cart</button>
+                <button class="btn add-to-wishlist">Add to Wishlist</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services section ends -->
+
+<!-- Services section ends -->
+
+    <!-- Services section ends -->
+
+    <!-- Explore section starts -->
+   <!-- Explore section starts -->
+<section class="explore" id="explore">
+    <h1 class="heading"> Explore <span>the World</span> </h1>
+    <div class="box-container">
+        <div class="box" onclick="window.location.href='#paris'">
+            <h3>Paris, France</h3>
+            <p>Time: All year round<br>Fare: $1200</p>
+            <a href="payment.html" class="btn">Book Now</a>
+        </div>
+        <div class="box" onclick="window.location.href='#tirupati'">
+            <h3>Tirupati, India</h3>
+            <p>Time: All year round<br>Fare: $1000</p>
+            <a href="payment.html" class="btn">Book Now</a>
+        </div>
+        <div class="box" onclick="window.location.href='#newyork'">
+            <h3>New York, USA</h3>
+            <p>Time: All year round<br>Fare: $1500</p>
+            <a href="payment.html" class="btn">Book Now</a>
+        </div>
+    </div>
+</section>
+<!-- Explore section ends -->
+
+    <!-- Explore section ends -->
+
+    <!-- Contact section starts -->
+   <!-- Contact section starts -->
+<section class="contact" id="contact">
+    <h1 class="heading"> <span> Contact </span> Us </h1>
+    <div class="row">
+        <form action="">
+            <input type="text" placeholder="Name" class="box">
+            <input type="email" placeholder="Email" class="box">
+            <input type="number" placeholder="Phone Number" class="box">
+            <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+        <!-- Increase size of image -->
+        <div class="image">
+            <img src="con.jpeg" alt="Contact Image" style="width: 300px; height: auto;">
+        </div>
+    </div>
+</section>
+<!-- Contact section ends -->
+
+    </section>
+    <!-- Contact section ends -->
+
+
+    <!-- Footer section starts -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="box">
+                <h3>Legal</h3>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="hackathon@example.com">info@example.com</a>
+                <a href="tel:+911234567890">+1234567890</a>
+                <a href="#">vizag ,City</a>
+            </div>
+        </div>
+        <div class="credit">| Created by <span>Your Name</span> | All Rights Reserved |</div>
+    </section>
+    <!-- Footer section ends -->
+
+    <script>
+        document.getElementById('start-exploring').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelector('.explore').style.display = 'block';
+            document.querySelector('.explore').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+    
+</body>
+</html>
